@@ -46,14 +46,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Camadas\DAL\Album.cs" />
+    <Compile Include="Camadas\DAL\Genero.cs" />
+    <Compile Include="Camadas\DAL\Lista.cs" />
+    <Compile Include="Camadas\DAL\Musica.cs" />
+    <Compile Include="Camadas\DAL\Usuario.cs" />
+    <Compile Include="Camadas\DAL\Artista.cs" />
+    <Compile Include="Camadas\Model\Artista.cs" />
+    <Compile Include="Camadas\Model\Album.cs" />
+    <Compile Include="Camadas\DAL\Conexao.cs" />
+    <Compile Include="Camadas\Model\Genero.cs" />
+    <Compile Include="Camadas\Model\Lista.cs" />
+    <Compile Include="Camadas\Model\Musica.cs" />
+    <Compile Include="Camadas\Model\Usuario.cs" />
+    <Compile Include="frmUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="frmUsuario.Designer.cs">
+      <DependentUpon>frmUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmUsuario.resx">
+      <DependentUpon>frmUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -75,6 +91,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Camadas\BLL\" />
+    <Folder Include="View\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
