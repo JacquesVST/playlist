@@ -13,6 +13,5 @@ namespace Playlist.Camadas.Model
         public Usuario usuario { get; set; }
         public DateTime data { get; set; }
         public string descricao { get; set; }
-        public int tamanho { get; set; }
     }
 }

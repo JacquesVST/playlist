@@ -46,29 +46,45 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Camadas\DAL\Album.cs" />
-    <Compile Include="Camadas\DAL\Genero.cs" />
+    <Compile Include="Camadas\BLL\Usuario.cs" />
     <Compile Include="Camadas\DAL\Lista.cs" />
     <Compile Include="Camadas\DAL\Musica.cs" />
     <Compile Include="Camadas\DAL\Usuario.cs" />
-    <Compile Include="Camadas\DAL\Artista.cs" />
-    <Compile Include="Camadas\Model\Artista.cs" />
-    <Compile Include="Camadas\Model\Album.cs" />
     <Compile Include="Camadas\DAL\Conexao.cs" />
-    <Compile Include="Camadas\Model\Genero.cs" />
     <Compile Include="Camadas\Model\Lista.cs" />
     <Compile Include="Camadas\Model\Musica.cs" />
     <Compile Include="Camadas\Model\Usuario.cs" />
-    <Compile Include="frmUsuario.cs">
+    <Compile Include="View\frmMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmUsuario.Designer.cs">
-      <DependentUpon>frmUsuario.cs</DependentUpon>
+    <Compile Include="View\frmMenu.Designer.cs">
+      <DependentUpon>frmMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmMusicaCadastro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmMusicaCadastro.Designer.cs">
+      <DependentUpon>frmMusicaCadastro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmUsuarioCadastro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmUsuarioCadastro.Designer.cs">
+      <DependentUpon>frmUsuarioCadastro.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmUsuario.resx">
-      <DependentUpon>frmUsuario.cs</DependentUpon>
+    <Compile Include="View\frmUsuarioLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmUsuarioLogin.Designer.cs">
+      <DependentUpon>frmUsuarioLogin.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\frmMenu.resx">
+      <DependentUpon>frmMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmUsuarioCadastro.resx">
+      <DependentUpon>frmUsuarioCadastro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -79,6 +95,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\frmUsuarioLogin.resx">
+      <DependentUpon>frmUsuarioLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -92,9 +111,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Camadas\BLL\" />
-    <Folder Include="View\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

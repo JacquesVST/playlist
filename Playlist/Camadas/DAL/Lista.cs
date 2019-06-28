@@ -29,10 +29,9 @@ namespace Playlist.Camadas.DAL
                     Model.Lista lista = new Model.Lista();
                     lista.id = Convert.ToInt32(dados["id"].ToString());
                     lista.nome = dados["nome"].ToString();
-                    lista.usuario = dalUsuario.SelectPorID(Convert.ToInt32(dados["id_usuario"].ToString()));
+                    lista.usuario = dalUsuario.Select(Convert.ToInt32(dados["id_usuario"].ToString()));
                     lista.data = Convert.ToDateTime(dados["data"].ToString());
                     lista.descricao = dados["descricao"].ToString();
-                    lista.tamanho = Convert.ToInt32(dados["tamanho"].ToString());
                     listas.Add(lista);
                 }
             }
@@ -62,10 +61,9 @@ namespace Playlist.Camadas.DAL
                 {
                     lista.id = Convert.ToInt32(dados["id"].ToString());
                     lista.nome = dados["nome"].ToString();
-                    lista.usuario = dalUsuario.SelectPorID(Convert.ToInt32(dados["id_usuario"].ToString()));
+                    lista.usuario = dalUsuario.Select(Convert.ToInt32(dados["id_usuario"].ToString()));
                     lista.data = Convert.ToDateTime(dados["data"].ToString());
                     lista.descricao = dados["descricao"].ToString();
-                    lista.tamanho = Convert.ToInt32(dados["tamanho"].ToString());
                 }
             }
             catch

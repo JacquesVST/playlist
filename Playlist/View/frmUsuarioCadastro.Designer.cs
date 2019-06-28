@@ -35,16 +35,15 @@
             this.lblScreenname = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblNascimento = new System.Windows.Forms.Label();
-            this.lblCategoria = new System.Windows.Forms.Label();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtScreenname = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.dtpNascimento = new System.Windows.Forms.DateTimePicker();
-            this.cboCategoria = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.picPerfil = new System.Windows.Forms.PictureBox();
             this.btnImagem = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
+            this.btnLimpar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPerfil)).BeginInit();
             this.SuspendLayout();
@@ -52,7 +51,7 @@
             // dgvUsuarios
             // 
             this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUsuarios.Location = new System.Drawing.Point(17, 421);
+            this.dgvUsuarios.Location = new System.Drawing.Point(13, 295);
             this.dgvUsuarios.Margin = new System.Windows.Forms.Padding(4);
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.Size = new System.Drawing.Size(1033, 219);
@@ -105,15 +104,6 @@
             this.lblNascimento.TabIndex = 6;
             this.lblNascimento.Text = "Data de Nascimento:";
             // 
-            // lblCategoria
-            // 
-            this.lblCategoria.AutoSize = true;
-            this.lblCategoria.Location = new System.Drawing.Point(52, 204);
-            this.lblCategoria.Name = "lblCategoria";
-            this.lblCategoria.Size = new System.Drawing.Size(103, 19);
-            this.lblCategoria.TabIndex = 7;
-            this.lblCategoria.Text = "Tipo de Conta:";
-            // 
             // txtUsername
             // 
             this.txtUsername.Location = new System.Drawing.Point(161, 65);
@@ -143,21 +133,10 @@
             this.dtpNascimento.Size = new System.Drawing.Size(206, 27);
             this.dtpNascimento.TabIndex = 11;
             // 
-            // cboCategoria
-            // 
-            this.cboCategoria.FormattingEnabled = true;
-            this.cboCategoria.Items.AddRange(new object[] {
-            "Usuário Comum",
-            "Artista/Produtor/Grupo"});
-            this.cboCategoria.Location = new System.Drawing.Point(161, 201);
-            this.cboCategoria.Name = "cboCategoria";
-            this.cboCategoria.Size = new System.Drawing.Size(206, 27);
-            this.cboCategoria.TabIndex = 12;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(55, 238);
+            this.label1.Location = new System.Drawing.Point(55, 204);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 19);
             this.label1.TabIndex = 13;
@@ -167,16 +146,17 @@
             // 
             this.picPerfil.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.picPerfil.Cursor = System.Windows.Forms.Cursors.Default;
+            this.picPerfil.InitialImage = ((System.Drawing.Image)(resources.GetObject("picPerfil.InitialImage")));
             this.picPerfil.Location = new System.Drawing.Point(373, 65);
             this.picPerfil.Name = "picPerfil";
-            this.picPerfil.Size = new System.Drawing.Size(196, 196);
+            this.picPerfil.Size = new System.Drawing.Size(162, 162);
             this.picPerfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picPerfil.TabIndex = 14;
             this.picPerfil.TabStop = false;
             // 
             // btnImagem
             // 
-            this.btnImagem.Location = new System.Drawing.Point(161, 234);
+            this.btnImagem.Location = new System.Drawing.Point(161, 200);
             this.btnImagem.Name = "btnImagem";
             this.btnImagem.Size = new System.Drawing.Size(206, 27);
             this.btnImagem.TabIndex = 15;
@@ -187,13 +167,24 @@
             // btnCadastrar
             // 
             this.btnCadastrar.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastrar.Location = new System.Drawing.Point(17, 359);
+            this.btnCadastrar.Location = new System.Drawing.Point(161, 233);
             this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(143, 55);
+            this.btnCadastrar.Size = new System.Drawing.Size(206, 55);
             this.btnCadastrar.TabIndex = 16;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = true;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
+            // 
+            // btnLimpar
+            // 
+            this.btnLimpar.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpar.Location = new System.Drawing.Point(373, 233);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(162, 55);
+            this.btnLimpar.TabIndex = 17;
+            this.btnLimpar.Text = "Limpar";
+            this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // frmUsuario
             // 
@@ -201,16 +192,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1067, 658);
+            this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.btnImagem);
             this.Controls.Add(this.picPerfil);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.cboCategoria);
             this.Controls.Add(this.dtpNascimento);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtScreenname);
             this.Controls.Add(this.txtUsername);
-            this.Controls.Add(this.lblCategoria);
             this.Controls.Add(this.lblNascimento);
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.lblScreenname);
@@ -218,9 +208,9 @@
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.dgvUsuarios);
             this.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.MaximizeBox = false;
             this.Name = "frmUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Playlist";
@@ -240,16 +230,15 @@
         private System.Windows.Forms.Label lblScreenname;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblNascimento;
-        private System.Windows.Forms.Label lblCategoria;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtScreenname;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.DateTimePicker dtpNascimento;
-        private System.Windows.Forms.ComboBox cboCategoria;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox picPerfil;
         private System.Windows.Forms.Button btnImagem;
         private System.Windows.Forms.Button btnCadastrar;
+        private System.Windows.Forms.Button btnLimpar;
     }
 }
 

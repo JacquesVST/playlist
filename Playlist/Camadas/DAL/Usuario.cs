@@ -33,8 +33,6 @@ namespace Playlist.Camadas.DAL
                     usuario.nomeTela = dados["nome_tela"].ToString();
                     usuario.email = dados["email"].ToString();
                     usuario.dataNascimento = Convert.ToDateTime(dados["data_nascimento"].ToString());
-                    usuario.dataRegistro = Convert.ToDateTime(dados["data_registro"].ToString());
-                    usuario.categoria = dados["categoria"].ToString();
                     usuario.descricao = dados["descricao"].ToString();
                     usuarios.Add(usuario);
 
@@ -51,7 +49,7 @@ namespace Playlist.Camadas.DAL
             return usuarios;
         }
 
-        public Model.Usuario SelectPorID(int id)
+        public Model.Usuario Select(int id)
         {
             Model.Usuario usuario = new Model.Usuario();
             SqlConnection conexao = new SqlConnection(strCon);
@@ -69,8 +67,6 @@ namespace Playlist.Camadas.DAL
                     usuario.nomeTela = dados["nome_tela"].ToString();
                     usuario.email = dados["email"].ToString();
                     usuario.dataNascimento = Convert.ToDateTime(dados["data_nascimento"].ToString());
-                    usuario.dataNascimento = Convert.ToDateTime(dados["data_registro"].ToString());
-                    usuario.categoria = dados["categoria"].ToString();
                     usuario.descricao = dados["descricao"].ToString();
                 }
             }
@@ -85,24 +81,128 @@ namespace Playlist.Camadas.DAL
             return usuario;
         }
 
+        public Model.Usuario Select(string user)
+        {
+            Model.Usuario usuario = new Model.Usuario();
+            SqlConnection conexao = new SqlConnection(strCon);
+            string sql = "Select * from Usuario where nome_usuario=@user";
+            SqlCommand cmd = new SqlCommand(sql, conexao);
+            cmd.Parameters.AddWithValue("@user", user);
+            try
+            {
+                conexao.Open();
+                SqlDataReader dados = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                while (dados.Read())
+                {
+                    usuario.id = Convert.ToInt32(dados["id"].ToString());
+                    usuario.nomeUsuario = dados["nome_usuario"].ToString();
+                    usuario.nomeTela = dados["nome_tela"].ToString();
+                    usuario.email = dados["email"].ToString();
+                    usuario.dataNascimento = Convert.ToDateTime(dados["data_nascimento"].ToString());
+                    usuario.descricao = dados["descricao"].ToString();
+                }
+            }
+            catch
+            {
+                Console.WriteLine("Erro ao buscar usuario");
+            }
+            finally
+            {
+                conexao.Close();
+            }
+            return usuario;
+        }
+
+        public List<string> SelectNomeUsuario()
+        {
+            List<string> usuarios = new List<string>();
+            SqlConnection conexao = new SqlConnection(strCon);
+            string sql = "Select nome_usuario from Usuario";
+            SqlCommand cmd = new SqlCommand(sql, conexao);
+            try
+            {
+                conexao.Open();
+                SqlDataReader dados = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                while (dados.Read())
+                {
+                    string nomeUsuario = dados["nome_usuario"].ToString();
+                    usuarios.Add(nomeUsuario);
+                }
+            }
+            catch
+            {
+                Console.WriteLine("Erro ao listar nomes utilizados");
+            }
+            finally
+            {
+                conexao.Close();
+            }
+            return usuarios;
+        }
+
         public void Insert(Model.Usuario usuario)
         {
             SqlConnection conexao = new SqlConnection(strCon);
-            string sql = "Insert into Usuario (nome_usuario, nome_tela, email, data_nascimento, data_registro, imagem_perfil, categoria) values (@nome_usuario, @nome_tela, @email, @data_nascimento, @data_registro, @imagem_perfil, @categoria);";
+            string sql = "Insert into Usuario (nome_usuario, nome_tela, email, data_nascimento, imagem_perfil) values (@nome_usuario, @nome_tela, @email, @data_nascimento, @imagem_perfil);";
             SqlCommand cmd = new SqlCommand(sql, conexao);
             cmd.Parameters.AddWithValue("@nome_usuario", usuario.nomeUsuario);
             cmd.Parameters.AddWithValue("@nome_tela", usuario.nomeTela);
             cmd.Parameters.AddWithValue("@email", usuario.email);
             cmd.Parameters.AddWithValue("@data_nascimento", usuario.dataNascimento);
-            cmd.Parameters.AddWithValue("@data_registro", usuario.dataRegistro);
-            cmd.Parameters.AddWithValue("@categoria", usuario.categoria);
             cmd.Parameters.AddWithValue("@imagem_perfil", usuario.imagemPerfil);
-            //cmd.Parameters.AddWithValue("@descricao", usuario.descricao);
             try
             {
                 conexao.Open();
                 cmd.ExecuteNonQuery();
-                Console.WriteLine("sucesso");
+            }
+            catch (SqlTypeException sqlException)
+            {
+                Console.WriteLine(sqlException.Message);
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+        }
+
+        public void Update(Model.Usuario usuario)
+        {
+            SqlConnection conexao = new SqlConnection(strCon);
+            string sql = "Update Usuario set nome_usuario=@nome_usuario, nome_tela=@nome_tela, email=@email, data_nascimento=@data_nascimento, imagem_perfil=@imagem_perfil where id=@id";
+            SqlCommand cmd = new SqlCommand(sql, conexao);
+            cmd.Parameters.AddWithValue("@id", usuario.id);
+            cmd.Parameters.AddWithValue("@nome_usuario", usuario.nomeUsuario);
+            cmd.Parameters.AddWithValue("@nome_tela", usuario.nomeTela);
+            cmd.Parameters.AddWithValue("@email", usuario.email);
+            cmd.Parameters.AddWithValue("@data_nascimento", usuario.dataNascimento);
+            cmd.Parameters.AddWithValue("@imagem_perfil", usuario.imagemPerfil);
+            try
+            {
+                conexao.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlTypeException sqlException)
+            {
+                Console.WriteLine(sqlException.Message);
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+        }
+
+        public void Delete(int id)
+        {
+            SqlConnection conexao = new SqlConnection(strCon);
+            string sql = "Delete from Usuario where id=@id";
+            SqlCommand cmd = new SqlCommand(sql, conexao);
+            cmd.Parameters.AddWithValue("@id", id);
+            try
+            {
+                conexao.Open();
+                cmd.ExecuteNonQuery();
             }
             catch (SqlTypeException sqlException)
             {

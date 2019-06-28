@@ -18,12 +18,11 @@ namespace Playlist
             InitializeComponent();
         }
 
-        Camadas.DAL.Usuario dalUsuario = new Camadas.DAL.Usuario();
-
         private void frmUsuario_Load(object sender, EventArgs e)
         {
+            Camadas.BLL.Usuario bllUsuario = new Camadas.BLL.Usuario();
             dgvUsuarios.DataSource = "";
-            dgvUsuarios.DataSource = dalUsuario.Select();
+            dgvUsuarios.DataSource = bllUsuario.Select();
         }
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
@@ -33,27 +32,25 @@ namespace Playlist
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
+            Camadas.BLL.Usuario bllUsuario = new Camadas.BLL.Usuario();
             Camadas.Model.Usuario usuario = new Camadas.Model.Usuario();
             usuario.nomeUsuario = txtUsername.Text;
             usuario.nomeTela = txtScreenname.Text;
             usuario.email = txtEmail.Text;
             usuario.dataNascimento = dtpNascimento.Value;
-            usuario.dataRegistro = DateTime.Now;
-            usuario.categoria = cboCategoria.Text;
             usuario.descricao = null;
 
             string dirImg = @"C:\imagensPerfil\" + txtUsername.Text + ".bmp";
 
-            ImageConverter converter = new ImageConverter();
-            byte[] img = (byte[])converter.ConvertTo(picPerfil.Image, typeof(byte[]));
-
-            System.IO.File.WriteAllBytes(dirImg, img);
+                ImageConverter converter = new ImageConverter();
+                byte[] img = (byte[])converter.ConvertTo(picPerfil.Image, typeof(byte[]));
+                System.IO.File.WriteAllBytes(dirImg, img);
 
             usuario.imagemPerfil = dirImg;
 
             try
             {
-                dalUsuario.Insert(usuario);
+                bllUsuario.Insert(usuario);
             }
             catch (SqlTypeException sqlException)
             {
@@ -61,7 +58,13 @@ namespace Playlist
             }
 
             dgvUsuarios.DataSource = "";
-            dgvUsuarios.DataSource = dalUsuario.Select();
+            dgvUsuarios.DataSource = bllUsuario.Select();
+
+            txtUsername.Clear();
+            txtScreenname.Clear();
+            txtEmail.Clear();
+            dtpNascimento.ResetText();
+            picPerfil.Image = null;
         }
 
         private void btnImagem_Click(object sender, EventArgs e)
@@ -71,6 +74,15 @@ namespace Playlist
             {
                 picPerfil.Image = Image.FromFile(open.FileName);
             }
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            txtUsername.Clear();
+            txtScreenname.Clear();
+            txtEmail.Clear();
+            dtpNascimento.ResetText();
+            picPerfil.Image = null;
         }
     }
 }
