@@ -33,9 +33,9 @@ namespace Playlist.Camadas.DAL
                     usuario.nomeTela = dados["nome_tela"].ToString();
                     usuario.email = dados["email"].ToString();
                     usuario.dataNascimento = Convert.ToDateTime(dados["data_nascimento"].ToString());
+                    usuario.imagemPerfil = dados["imagem_perfil"].ToString();
                     usuario.descricao = dados["descricao"].ToString();
                     usuarios.Add(usuario);
-
                 }
             }
             catch
@@ -67,6 +67,7 @@ namespace Playlist.Camadas.DAL
                     usuario.nomeTela = dados["nome_tela"].ToString();
                     usuario.email = dados["email"].ToString();
                     usuario.dataNascimento = Convert.ToDateTime(dados["data_nascimento"].ToString());
+                    usuario.imagemPerfil = dados["imagem_perfil"].ToString();
                     usuario.descricao = dados["descricao"].ToString();
                 }
             }
@@ -99,6 +100,7 @@ namespace Playlist.Camadas.DAL
                     usuario.nomeTela = dados["nome_tela"].ToString();
                     usuario.email = dados["email"].ToString();
                     usuario.dataNascimento = Convert.ToDateTime(dados["data_nascimento"].ToString());
+                    usuario.imagemPerfil = dados["imagem_perfil"].ToString();
                     usuario.descricao = dados["descricao"].ToString();
                 }
             }
@@ -169,7 +171,7 @@ namespace Playlist.Camadas.DAL
         public void Update(Model.Usuario usuario)
         {
             SqlConnection conexao = new SqlConnection(strCon);
-            string sql = "Update Usuario set nome_usuario=@nome_usuario, nome_tela=@nome_tela, email=@email, data_nascimento=@data_nascimento, imagem_perfil=@imagem_perfil where id=@id";
+            string sql = "Update Usuario set nome_usuario=@nome_usuario, nome_tela=@nome_tela, email=@email, data_nascimento=@data_nascimento, imagem_perfil=@imagem_perfil, descricao=@descricao where id=@id";
             SqlCommand cmd = new SqlCommand(sql, conexao);
             cmd.Parameters.AddWithValue("@id", usuario.id);
             cmd.Parameters.AddWithValue("@nome_usuario", usuario.nomeUsuario);
@@ -177,6 +179,7 @@ namespace Playlist.Camadas.DAL
             cmd.Parameters.AddWithValue("@email", usuario.email);
             cmd.Parameters.AddWithValue("@data_nascimento", usuario.dataNascimento);
             cmd.Parameters.AddWithValue("@imagem_perfil", usuario.imagemPerfil);
+            cmd.Parameters.AddWithValue("@descricao", usuario.descricao);
             try
             {
                 conexao.Open();
@@ -213,6 +216,87 @@ namespace Playlist.Camadas.DAL
                 conexao.Close();
             }
 
+        }
+
+        public int SelectCompras(int id)
+        {
+            int musicasCompradas = 0;
+            SqlConnection conexao = new SqlConnection(strCon);
+            string sql = "Select count(id_usuario) as uploads from Venda_Musica where id_usuario=@id";
+            SqlCommand cmd = new SqlCommand(sql, conexao);
+            cmd.Parameters.AddWithValue("@id", id);
+            try
+            {
+                conexao.Open();
+                SqlDataReader dados = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                while (dados.Read())
+                {
+                    musicasCompradas = Convert.ToInt32(dados["uploads"]);
+                }
+            }
+            catch
+            {
+                Console.WriteLine("Erro ao contar compras");
+            }
+            finally
+            {
+                conexao.Close();
+            }
+            return musicasCompradas;
+        }
+
+        public int SelectUploads(int id)
+        {
+            int musicasUpadas = 0;
+            SqlConnection conexao = new SqlConnection(strCon);
+            string sql = "Select count(id_usuario) as compras from Musica where id_usuario=@id";
+            SqlCommand cmd = new SqlCommand(sql, conexao);
+            cmd.Parameters.AddWithValue("@id", id);
+            try
+            {
+                conexao.Open();
+                SqlDataReader dados = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                while (dados.Read())
+                {
+                    musicasUpadas = Convert.ToInt32(dados["compras"]);
+                }
+            }
+            catch
+            {
+                Console.WriteLine("Erro ao contar uploads");
+            }
+            finally
+            {
+                conexao.Close();
+            }
+            return musicasUpadas;
+        }
+
+        public int SelectListas(int id)
+        {
+            int playlistsCriadas = 0;
+            SqlConnection conexao = new SqlConnection(strCon);
+            string sql = "Select count(id_usuario) as listas from Lista where id_usuario=@id";
+            SqlCommand cmd = new SqlCommand(sql, conexao);
+            cmd.Parameters.AddWithValue("@id", id);
+            try
+            {
+                conexao.Open();
+                SqlDataReader dados = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                while (dados.Read())
+                {
+                    playlistsCriadas = Convert.ToInt32(dados["listas"]);
+                }
+            }
+            catch
+            {
+                Console.WriteLine("Erro ao contar listas");
+            }
+            finally
+            {
+                conexao.Close();
+            }
+            return playlistsCriadas;
         }
     }
 }

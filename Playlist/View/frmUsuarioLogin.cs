@@ -46,7 +46,7 @@ namespace Playlist.View
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            Camadas.Model.Conexao.usuario = new Camadas.Model.Usuario();
+            Camadas.Model.Conexao.usuario = null;
             this.Close();
         }
     }

@@ -16,6 +16,7 @@ namespace Playlist
         public frmUsuario()
         {
             InitializeComponent();
+            picPerfil.Image = Image.FromFile(@"C:\imagensPerfil\padrao.bmp");
         }
 
         private void frmUsuario_Load(object sender, EventArgs e)
@@ -39,7 +40,7 @@ namespace Playlist
             usuario.email = txtEmail.Text;
             usuario.dataNascimento = dtpNascimento.Value;
             usuario.descricao = null;
-
+            
             string dirImg = @"C:\imagensPerfil\" + txtUsername.Text + ".bmp";
 
                 ImageConverter converter = new ImageConverter();
@@ -47,24 +48,23 @@ namespace Playlist
                 System.IO.File.WriteAllBytes(dirImg, img);
 
             usuario.imagemPerfil = dirImg;
-
             try
             {
                 bllUsuario.Insert(usuario);
+                Camadas.Model.Conexao.usuario = usuario;
             }
             catch (SqlTypeException sqlException)
             {
                 Console.WriteLine(sqlException.Message);
             }
 
-            dgvUsuarios.DataSource = "";
             dgvUsuarios.DataSource = bllUsuario.Select();
 
             txtUsername.Clear();
             txtScreenname.Clear();
             txtEmail.Clear();
             dtpNascimento.ResetText();
-            picPerfil.Image = null;
+            picPerfil.Image = Image.FromFile(@"C:\imagensPerfil\padrao.bmp");
         }
 
         private void btnImagem_Click(object sender, EventArgs e)
@@ -82,7 +82,8 @@ namespace Playlist
             txtScreenname.Clear();
             txtEmail.Clear();
             dtpNascimento.ResetText();
-            picPerfil.Image = null;
+            picPerfil.Image = Image.FromFile(@"C:\imagensPerfil\padrao.bmp");
         }
+
     }
 }

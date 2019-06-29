@@ -17,12 +17,26 @@ namespace Playlist.View
         {
             InitializeComponent();
             frmAtual = this;
+            frmUsuarioLogin frmUsusarioLogin = new frmUsuarioLogin();
+            frmUsusarioLogin.ShowDialog();
+        }
 
+        private void NotLogged()
+        {
+            MessageBox.Show("Você deve estar logado para esta função", "Erro de autenticação", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+        }
+
+        private void FecharTodos()
+        {
+            foreach (Form form in MdiChildren)
+            {
+                form.Close();
+            }
         }
 
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           this.Dispose();
+            this.Dispose();
         }
 
         private void cadastrarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -32,33 +46,51 @@ namespace Playlist.View
 
         private void loginToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmUsuarioLogin frmUser = new frmUsuarioLogin();
-            frmUser.Show();
+            FecharTodos();
+            frmUsuarioLogin frmUsusarioLogin = new frmUsuarioLogin();
+            frmUsusarioLogin.ShowDialog();
         }
 
         private void cadastrarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            frmUsuario frmUser = new frmUsuario();
-            frmUser.MdiParent = this;
-            frmUser.Show();
+            FecharTodos();
+            frmUsuario frmUsuarioCadastro = new frmUsuario();
+            frmUsuarioCadastro.MdiParent = this;
+            frmUsuarioCadastro.Show();
         }
 
         private void criarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void enviarToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void meuPerfilToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FecharTodos();
             if (Camadas.Model.Conexao.usuario != null)
             {
-                frmMusicaCadastro frmMsc = new frmMusicaCadastro();
-                frmMsc.Show();
-            } else
-            {
-                MessageBox.Show("Você deve estar logado para esta funççao", "Erro de autenticação", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                frmUsuarioPerfil frmUsuarioPerfil = new frmUsuarioPerfil();
+                frmUsuarioPerfil.MdiParent = this;
+                frmUsuarioPerfil.Show();
             }
-           
+            else
+            {
+                NotLogged();
+            }
+
+        }
+
+        private void buscarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FecharTodos();
+            frmUsuarioBusca frmUsuarioBusca = new frmUsuarioBusca();
+            frmUsuarioBusca.MdiParent = this;
+            frmUsuarioBusca.Show();
         }
     }
 }

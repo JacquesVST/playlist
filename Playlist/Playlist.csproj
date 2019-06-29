@@ -50,7 +50,7 @@
     <Compile Include="Camadas\DAL\Lista.cs" />
     <Compile Include="Camadas\DAL\Musica.cs" />
     <Compile Include="Camadas\DAL\Usuario.cs" />
-    <Compile Include="Camadas\DAL\Conexao.cs" />
+    <Compile Include="Camadas\Model\Conexao.cs" />
     <Compile Include="Camadas\Model\Lista.cs" />
     <Compile Include="Camadas\Model\Musica.cs" />
     <Compile Include="Camadas\Model\Usuario.cs" />
@@ -60,11 +60,17 @@
     <Compile Include="View\frmMenu.Designer.cs">
       <DependentUpon>frmMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\frmMusicaCadastro.cs">
+    <Compile Include="View\frmUsuarioAtualizacao.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\frmMusicaCadastro.Designer.cs">
-      <DependentUpon>frmMusicaCadastro.cs</DependentUpon>
+    <Compile Include="View\frmUsuarioAtualizacao.Designer.cs">
+      <DependentUpon>frmUsuarioAtualizacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmUsuarioBusca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmUsuarioBusca.Designer.cs">
+      <DependentUpon>frmUsuarioBusca.cs</DependentUpon>
     </Compile>
     <Compile Include="View\frmUsuarioCadastro.cs">
       <SubType>Form</SubType>
@@ -80,8 +86,20 @@
     <Compile Include="View\frmUsuarioLogin.Designer.cs">
       <DependentUpon>frmUsuarioLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\frmUsuarioPerfil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmUsuarioPerfil.Designer.cs">
+      <DependentUpon>frmUsuarioPerfil.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="View\frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmUsuarioAtualizacao.resx">
+      <DependentUpon>frmUsuarioAtualizacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmUsuarioBusca.resx">
+      <DependentUpon>frmUsuarioBusca.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmUsuarioCadastro.resx">
       <DependentUpon>frmUsuarioCadastro.cs</DependentUpon>
@@ -97,6 +115,9 @@
     </Compile>
     <EmbeddedResource Include="View\frmUsuarioLogin.resx">
       <DependentUpon>frmUsuarioLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmUsuarioPerfil.resx">
+      <DependentUpon>frmUsuarioPerfil.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

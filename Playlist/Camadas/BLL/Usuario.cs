@@ -32,7 +32,8 @@ namespace Playlist.Camadas.BLL
             DAL.Usuario dalUser = new DAL.Usuario();
             List<string> nomesIndisponiveis = dalUser.SelectNomeUsuario();
             usuario.nomeUsuario = usuario.nomeUsuario.Trim();
-            if (nomesIndisponiveis.Contains(usuario.nomeUsuario))
+
+            if (nomesIndisponiveis.Contains(usuario.nomeUsuario) || usuario.nomeUsuario == "" || usuario.nomeUsuario == null)
             {
                 MessageBox.Show("Nome de usuário Indisponível", "Erro ao cadastrar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
             } else
@@ -53,7 +54,25 @@ namespace Playlist.Camadas.BLL
             DAL.Usuario dalUser = new DAL.Usuario();
             dalUser.Delete(id);
         }
-    
+
+        public int SelectCompras(int id)
+        {
+            DAL.Usuario dalUser = new DAL.Usuario();
+            return dalUser.SelectCompras(id);
+        }
+
+        public int SelectUploads(int id)
+        {
+            DAL.Usuario dalUser = new DAL.Usuario();
+            return dalUser.SelectUploads(id);
+        }
+
+        public int SelectListas(int id)
+        {
+            DAL.Usuario dalUser = new DAL.Usuario();
+            return dalUser.SelectListas(id);
+        }
+
     }
 }
  
