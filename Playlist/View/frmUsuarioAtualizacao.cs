@@ -41,13 +41,13 @@ namespace Playlist.View
             byte[] img = (byte[])converter.ConvertTo(picPerfil.Image, typeof(byte[]));
             try
             {
-                string path = @"C:\playlist\imagensPerfil\" + usuario.nomeUsuario + ".bmp";
+                string path = @"" + usuario.nomeUsuario + ".bmp";
                 System.IO.File.WriteAllBytes(path, img);
                 usuario.imagemPerfil = path;
             }
             catch
             {
-                string path = @"C:\playlist\imagensPerfil\" + usuario.nomeUsuario + "update.bmp";
+                string path = @"" + usuario.nomeUsuario + "update.bmp";
                 System.IO.File.WriteAllBytes(path, img);
                 usuario.imagemPerfil = path;
             }

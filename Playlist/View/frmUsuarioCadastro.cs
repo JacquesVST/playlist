@@ -41,7 +41,7 @@ namespace Playlist
             usuario.dataNascimento = dtpNascimento.Value;
             usuario.descricao = null;
             
-            string dirImg = @"C:\playlist\imagensPerfil\" + txtUsername.Text + ".bmp";
+            string dirImg = @"" + txtUsername.Text + ".bmp";
 
                 ImageConverter converter = new ImageConverter();
                 byte[] img = (byte[])converter.ConvertTo(picPerfil.Image, typeof(byte[]));
