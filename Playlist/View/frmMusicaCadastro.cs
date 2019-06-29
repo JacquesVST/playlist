@@ -30,10 +30,12 @@ namespace Playlist.View
         private void frmMusicaCadastro_Load(object sender, EventArgs e)
         {
             Camadas.BLL.Musica bllMusica = new Camadas.BLL.Musica();
+            dgvMusicas.DataSource = "";
             dgvMusicas.DataSource = bllMusica.Select();
         }
 
         private void carregarExibicao() {
+            lblExibicao.Text = "Arquivo selecionado: " + musicaAtual.local;
             fileStream = new FileStream(musicaAtual.local, FileMode.Open);
             player = new SoundPlayer(musicaAtual.local);
         }
@@ -66,7 +68,7 @@ namespace Playlist.View
             musicaAtual.descricao = rtbDescricao.Text;
             musicaAtual.data = DateTime.Now;
             musicaAtual.usuario = Camadas.Model.Conexao.usuario;
-
+            musicaAtual.duracao = Convert.ToInt32(fileStream.Length);
             string dirMsc = @"C:\playlist\arquivosMusica\" + musicaAtual.artista + "-" + musicaAtual.titulo + ".wav";
 
             using (FileStream output = new FileStream(dirMsc, FileMode.Create))
@@ -84,13 +86,13 @@ namespace Playlist.View
                 Console.WriteLine(sqlException.Message);
             }
 
-            dgvMusicas.DataSource = bllMusica.Select();
+                dgvMusicas.DataSource = bllMusica.Select();
 
-            txtTitulo.Clear();
-            txtArtista.Clear();
-            nudBpm.Value = 0;
-            rtbDescricao.Clear();
-            musicaAtual.local = null;
+                txtTitulo.Clear();
+                txtArtista.Clear();
+                nudBpm.Value = 0;
+                rtbDescricao.Clear();
+                musicaAtual.local = null;
         }
 
         private void dsbPlay_CheckedChanged(object sender, EventArgs e)

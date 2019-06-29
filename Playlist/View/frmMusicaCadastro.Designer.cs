@@ -45,13 +45,6 @@
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.dgvMusicas = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nome_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nome_tela = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.data_nascimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.imagem_perfil = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BPM = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.nudBpm)).BeginInit();
             this.pnlExibicao.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMusicas)).BeginInit();
@@ -157,65 +150,8 @@
             // dgvMusicas
             // 
             this.dgvMusicas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMusicas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id,
-            this.nome_usuario,
-            this.nome_tela,
-            this.data_nascimento,
-            this.imagem_perfil,
-            this.BPM,
-            this.descricao});
             resources.ApplyResources(this.dgvMusicas, "dgvMusicas");
             this.dgvMusicas.Name = "dgvMusicas";
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            resources.ApplyResources(this.id, "id");
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            // 
-            // nome_usuario
-            // 
-            this.nome_usuario.DataPropertyName = "titulo";
-            resources.ApplyResources(this.nome_usuario, "nome_usuario");
-            this.nome_usuario.Name = "nome_usuario";
-            this.nome_usuario.ReadOnly = true;
-            // 
-            // nome_tela
-            // 
-            this.nome_tela.DataPropertyName = "artista";
-            resources.ApplyResources(this.nome_tela, "nome_tela");
-            this.nome_tela.Name = "nome_tela";
-            this.nome_tela.ReadOnly = true;
-            // 
-            // data_nascimento
-            // 
-            this.data_nascimento.DataPropertyName = "data";
-            resources.ApplyResources(this.data_nascimento, "data_nascimento");
-            this.data_nascimento.Name = "data_nascimento";
-            this.data_nascimento.ReadOnly = true;
-            // 
-            // imagem_perfil
-            // 
-            this.imagem_perfil.DataPropertyName = "local";
-            resources.ApplyResources(this.imagem_perfil, "imagem_perfil");
-            this.imagem_perfil.Name = "imagem_perfil";
-            this.imagem_perfil.ReadOnly = true;
-            // 
-            // BPM
-            // 
-            this.BPM.DataPropertyName = "bpm";
-            resources.ApplyResources(this.BPM, "BPM");
-            this.BPM.Name = "BPM";
-            this.BPM.ReadOnly = true;
-            // 
-            // descricao
-            // 
-            this.descricao.DataPropertyName = "descricao";
-            resources.ApplyResources(this.descricao, "descricao");
-            this.descricao.Name = "descricao";
-            this.descricao.ReadOnly = true;
             // 
             // frmMusicaCadastro
             // 
@@ -265,12 +201,5 @@
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.DataGridView dgvMusicas;
         private System.Windows.Forms.CheckBox dsbPlay;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nome_usuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nome_tela;
-        private System.Windows.Forms.DataGridViewTextBoxColumn data_nascimento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn imagem_perfil;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BPM;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descricao;
     }
 }

@@ -102,5 +102,20 @@ namespace Playlist.View
             frmUsuarioBusca.MdiParent = this;
             frmUsuarioBusca.Show();
         }
+
+        private void buscarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FecharTodos();
+            if (Camadas.Model.Conexao.usuario != null)
+            {
+                frmMusicaBusca frmMusicaBusca = new frmMusicaBusca();
+                frmMusicaBusca.MdiParent = this;
+                frmMusicaBusca.Show();
+            }
+            else
+            {
+                NotLogged();
+            }
+        }
     }
 }

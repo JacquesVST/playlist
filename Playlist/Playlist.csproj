@@ -62,6 +62,12 @@
     <Compile Include="View\frmMenu.Designer.cs">
       <DependentUpon>frmMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\frmMusicaBusca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmMusicaBusca.Designer.cs">
+      <DependentUpon>frmMusicaBusca.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\frmMusicaCadastro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +108,9 @@
     </Compile>
     <EmbeddedResource Include="View\frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmMusicaBusca.resx">
+      <DependentUpon>frmMusicaBusca.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmMusicaCadastro.aa-DJ.resx">
       <DependentUpon>frmMusicaCadastro.cs</DependentUpon>

@@ -31,7 +31,7 @@ namespace Playlist.Camadas.DAL
                     Model.Musica musica = new Model.Musica();
                     musica.id = Convert.ToInt32(dados["id"].ToString());
                     musica.artista = dados["artista"].ToString();
-                    musica.titulo = dados["nome"].ToString();
+                    musica.titulo = dados["titulo"].ToString();
                     musica.duracao = Convert.ToInt32(dados["duracao"].ToString());
                     musica.bpm = Convert.ToInt32(dados["bpm"].ToString());
                     musica.data = Convert.ToDateTime(dados["data"].ToString());
@@ -41,9 +41,9 @@ namespace Playlist.Camadas.DAL
                     musicas.Add(musica);
                 }
             }
-            catch
+            catch (SqlException sqlerr)
             {
-                Console.WriteLine("Erro ao listar musicas");
+                Console.WriteLine(sqlerr.Message);
             }
             finally
             {
@@ -67,13 +67,13 @@ namespace Playlist.Camadas.DAL
                 {
                     musica.id = Convert.ToInt32(dados["id"].ToString());
                     musica.artista = dados["artista"].ToString();
-                    musica.titulo = dados["nome"].ToString();
+                    musica.titulo = dados["titulo"].ToString();
                     musica.duracao = Convert.ToInt32(dados["duracao"].ToString());
                     musica.bpm = Convert.ToInt32(dados["bpm"].ToString());
                     musica.data = Convert.ToDateTime(dados["data"].ToString());
                     musica.descricao = dados["descricao"].ToString();
-                    musica.usuario = dalUser.Select(Convert.ToInt32(dados["id_usuario"].ToString()));
                     musica.local = dados["local"].ToString();
+                    musica.usuario = dalUser.Select(Convert.ToInt32(dados["id_usuario"].ToString()));
                 }
             }
             catch
