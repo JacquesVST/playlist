@@ -37,11 +37,9 @@
             this.cadastrarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.músicasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.enviarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.meusEnviosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buscarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.playlistsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.criarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.minhasPlaylistsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buscarToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
@@ -103,7 +101,6 @@
             // 
             this.músicasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.enviarToolStripMenuItem,
-            this.meusEnviosToolStripMenuItem,
             this.buscarToolStripMenuItem1});
             this.músicasToolStripMenuItem.Name = "músicasToolStripMenuItem";
             this.músicasToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
@@ -112,27 +109,20 @@
             // enviarToolStripMenuItem
             // 
             this.enviarToolStripMenuItem.Name = "enviarToolStripMenuItem";
-            this.enviarToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.enviarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.enviarToolStripMenuItem.Text = "&Nova Música";
             this.enviarToolStripMenuItem.Click += new System.EventHandler(this.enviarToolStripMenuItem_Click);
-            // 
-            // meusEnviosToolStripMenuItem
-            // 
-            this.meusEnviosToolStripMenuItem.Name = "meusEnviosToolStripMenuItem";
-            this.meusEnviosToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.meusEnviosToolStripMenuItem.Text = "&Minhas Músicas";
             // 
             // buscarToolStripMenuItem1
             // 
             this.buscarToolStripMenuItem1.Name = "buscarToolStripMenuItem1";
-            this.buscarToolStripMenuItem1.Size = new System.Drawing.Size(159, 22);
+            this.buscarToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.buscarToolStripMenuItem1.Text = "&Buscar";
             // 
             // playlistsToolStripMenuItem
             // 
             this.playlistsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.criarToolStripMenuItem,
-            this.minhasPlaylistsToolStripMenuItem,
             this.buscarToolStripMenuItem2});
             this.playlistsToolStripMenuItem.Name = "playlistsToolStripMenuItem";
             this.playlistsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
@@ -141,20 +131,14 @@
             // criarToolStripMenuItem
             // 
             this.criarToolStripMenuItem.Name = "criarToolStripMenuItem";
-            this.criarToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.criarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.criarToolStripMenuItem.Text = "&Nova Playlist";
             this.criarToolStripMenuItem.Click += new System.EventHandler(this.criarToolStripMenuItem_Click);
-            // 
-            // minhasPlaylistsToolStripMenuItem
-            // 
-            this.minhasPlaylistsToolStripMenuItem.Name = "minhasPlaylistsToolStripMenuItem";
-            this.minhasPlaylistsToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
-            this.minhasPlaylistsToolStripMenuItem.Text = "&Minhas Playlists";
             // 
             // buscarToolStripMenuItem2
             // 
             this.buscarToolStripMenuItem2.Name = "buscarToolStripMenuItem2";
-            this.buscarToolStripMenuItem2.Size = new System.Drawing.Size(158, 22);
+            this.buscarToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
             this.buscarToolStripMenuItem2.Text = "&Buscar";
             // 
             // sairToolStripMenuItem
@@ -197,10 +181,8 @@
         private System.Windows.Forms.ToolStripMenuItem cadastrarToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem músicasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem enviarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem meusEnviosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem buscarToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem criarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem minhasPlaylistsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem buscarToolStripMenuItem2;
     }
 }

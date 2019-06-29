@@ -21,10 +21,16 @@ namespace Playlist.Camadas.BLL
             return dalUser.Select(id);
         }
 
-        public Model.Usuario Select(string user)
+        public Model.Usuario Select(string nomeUsuario)
         {
             DAL.Usuario dalUser = new DAL.Usuario();
-            return dalUser.Select(user);
+            return dalUser.Select(nomeUsuario);
+        }
+
+        public List<string> SelectNomeUsuario()
+        {
+            DAL.Usuario dalUser = new DAL.Usuario();
+            return dalUser.SelectNomeUsuario();
         }
 
         public void Insert(Model.Usuario usuario)

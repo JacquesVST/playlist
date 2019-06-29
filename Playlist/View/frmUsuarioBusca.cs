@@ -42,8 +42,7 @@ namespace Playlist.View
         private void btnFiltroId_Click(object sender, EventArgs e)
         {
             Camadas.BLL.Usuario bllUsuario = new Camadas.BLL.Usuario();
-            Camadas.DAL.Usuario dalUsuario = new Camadas.DAL.Usuario();
-            List<string> usuariosPossiveis = dalUsuario.SelectNomeUsuario();
+            List<string> usuariosPossiveis = bllUsuario.SelectNomeUsuario();
 
             int id;
             string user = txtFiltroId.Text;

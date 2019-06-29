@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Camadas\BLL\Lista.cs" />
+    <Compile Include="Camadas\BLL\Musica.cs" />
     <Compile Include="Camadas\BLL\Usuario.cs" />
     <Compile Include="Camadas\DAL\Lista.cs" />
     <Compile Include="Camadas\DAL\Musica.cs" />
@@ -59,6 +61,12 @@
     </Compile>
     <Compile Include="View\frmMenu.Designer.cs">
       <DependentUpon>frmMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmMusicaCadastro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmMusicaCadastro.Designer.cs">
+      <DependentUpon>frmMusicaCadastro.cs</DependentUpon>
     </Compile>
     <Compile Include="View\frmUsuarioAtualizacao.cs">
       <SubType>Form</SubType>
@@ -94,6 +102,12 @@
     </Compile>
     <EmbeddedResource Include="View\frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmMusicaCadastro.aa-DJ.resx">
+      <DependentUpon>frmMusicaCadastro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmMusicaCadastro.resx">
+      <DependentUpon>frmMusicaCadastro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmUsuarioAtualizacao.resx">
       <DependentUpon>frmUsuarioAtualizacao.cs</DependentUpon>

@@ -66,7 +66,17 @@ namespace Playlist.View
 
         private void enviarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            FecharTodos();
+            if (Camadas.Model.Conexao.usuario != null)
+            {
+                frmMusicaCadastro frmMusicaCadastro = new frmMusicaCadastro();
+                frmMusicaCadastro.MdiParent = this;
+                frmMusicaCadastro.Show();
+            }
+            else
+            {
+                NotLogged();
+            }
         }
 
         private void meuPerfilToolStripMenuItem_Click(object sender, EventArgs e)

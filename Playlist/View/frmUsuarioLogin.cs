@@ -21,9 +21,8 @@ namespace Playlist.View
         {
             string user = txtUsername.Text.Trim();
             Camadas.BLL.Usuario bllUser = new Camadas.BLL.Usuario();
-            Camadas.DAL.Usuario dalUser = new Camadas.DAL.Usuario();
             Camadas.Model.Usuario usuario = new Camadas.Model.Usuario();
-            List<string> usuariosCadastrados = dalUser.SelectNomeUsuario();
+            List<string> usuariosCadastrados = bllUser.SelectNomeUsuario();
             if (user == null || user == "")
             {
                 MessageBox.Show("Insira o nome de usuário", "Erro ao Logar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);

@@ -82,13 +82,13 @@ namespace Playlist.Camadas.DAL
             return usuario;
         }
 
-        public Model.Usuario Select(string user)
+        public Model.Usuario Select(string nomeUsuario)
         {
             Model.Usuario usuario = new Model.Usuario();
             SqlConnection conexao = new SqlConnection(strCon);
-            string sql = "Select * from Usuario where nome_usuario=@user";
+            string sql = "Select * from Usuario where nome_usuario=@nome_usuario";
             SqlCommand cmd = new SqlCommand(sql, conexao);
-            cmd.Parameters.AddWithValue("@user", user);
+            cmd.Parameters.AddWithValue("@nome_usuario", nomeUsuario);
             try
             {
                 conexao.Open();

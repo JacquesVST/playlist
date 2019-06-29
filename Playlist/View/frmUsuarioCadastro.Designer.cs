@@ -30,6 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUsuario));
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nome_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nome_tela = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.data_nascimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.imagem_perfil = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblScreenname = new System.Windows.Forms.Label();
@@ -39,18 +46,10 @@
             this.txtScreenname = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.dtpNascimento = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
             this.picPerfil = new System.Windows.Forms.PictureBox();
             this.btnImagem = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnLimpar = new System.Windows.Forms.Button();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nome_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nome_tela = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.data_nascimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.imagem_perfil = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPerfil)).BeginInit();
             this.SuspendLayout();
@@ -71,6 +70,61 @@
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.Size = new System.Drawing.Size(1299, 367);
             this.dgvUsuarios.TabIndex = 0;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 50;
+            // 
+            // nome_usuario
+            // 
+            this.nome_usuario.DataPropertyName = "nomeUsuario";
+            this.nome_usuario.HeaderText = "Nome de Usuário";
+            this.nome_usuario.Name = "nome_usuario";
+            this.nome_usuario.ReadOnly = true;
+            this.nome_usuario.Width = 200;
+            // 
+            // nome_tela
+            // 
+            this.nome_tela.DataPropertyName = "nomeTela";
+            this.nome_tela.HeaderText = "Nome de Exibição";
+            this.nome_tela.Name = "nome_tela";
+            this.nome_tela.ReadOnly = true;
+            this.nome_tela.Width = 200;
+            // 
+            // email
+            // 
+            this.email.DataPropertyName = "email";
+            this.email.HeaderText = "E-mail";
+            this.email.Name = "email";
+            this.email.ReadOnly = true;
+            this.email.Width = 150;
+            // 
+            // data_nascimento
+            // 
+            this.data_nascimento.DataPropertyName = "dataNascimento";
+            this.data_nascimento.HeaderText = "Data de Nascimento";
+            this.data_nascimento.Name = "data_nascimento";
+            this.data_nascimento.ReadOnly = true;
+            // 
+            // imagem_perfil
+            // 
+            this.imagem_perfil.DataPropertyName = "imagemPerfil";
+            this.imagem_perfil.HeaderText = "Diretório da imagem de perfil";
+            this.imagem_perfil.Name = "imagem_perfil";
+            this.imagem_perfil.ReadOnly = true;
+            this.imagem_perfil.Width = 256;
+            // 
+            // descricao
+            // 
+            this.descricao.DataPropertyName = "descricao";
+            this.descricao.HeaderText = "Descrição do usuário";
+            this.descricao.Name = "descricao";
+            this.descricao.ReadOnly = true;
+            this.descricao.Width = 300;
             // 
             // lblTitulo
             // 
@@ -148,15 +202,6 @@
             this.dtpNascimento.Size = new System.Drawing.Size(330, 27);
             this.dtpNascimento.TabIndex = 11;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(55, 204);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 19);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Foto de Perfil:";
-            // 
             // picPerfil
             // 
             this.picPerfil.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -175,7 +220,7 @@
             this.btnImagem.Name = "btnImagem";
             this.btnImagem.Size = new System.Drawing.Size(330, 27);
             this.btnImagem.TabIndex = 15;
-            this.btnImagem.Text = "Escolher Arquivo...";
+            this.btnImagem.Text = "Escolher Imagem de Perfil...";
             this.btnImagem.UseVisualStyleBackColor = true;
             this.btnImagem.Click += new System.EventHandler(this.btnImagem_Click);
             // 
@@ -201,72 +246,16 @@
             this.btnLimpar.UseVisualStyleBackColor = true;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Width = 50;
-            // 
-            // nome_usuario
-            // 
-            this.nome_usuario.DataPropertyName = "nomeUsuario";
-            this.nome_usuario.HeaderText = "Nome de Usuário";
-            this.nome_usuario.Name = "nome_usuario";
-            this.nome_usuario.ReadOnly = true;
-            this.nome_usuario.Width = 200;
-            // 
-            // nome_tela
-            // 
-            this.nome_tela.DataPropertyName = "nomeTela";
-            this.nome_tela.HeaderText = "Nome de Exibição";
-            this.nome_tela.Name = "nome_tela";
-            this.nome_tela.ReadOnly = true;
-            this.nome_tela.Width = 200;
-            // 
-            // email
-            // 
-            this.email.DataPropertyName = "email";
-            this.email.HeaderText = "E-mail";
-            this.email.Name = "email";
-            this.email.ReadOnly = true;
-            this.email.Width = 150;
-            // 
-            // data_nascimento
-            // 
-            this.data_nascimento.DataPropertyName = "dataNascimento";
-            this.data_nascimento.HeaderText = "Data de Nascimento";
-            this.data_nascimento.Name = "data_nascimento";
-            this.data_nascimento.ReadOnly = true;
-            // 
-            // imagem_perfil
-            // 
-            this.imagem_perfil.DataPropertyName = "imagemPerfil";
-            this.imagem_perfil.HeaderText = "Diretório da imagem de perfil";
-            this.imagem_perfil.Name = "imagem_perfil";
-            this.imagem_perfil.ReadOnly = true;
-            this.imagem_perfil.Width = 256;
-            // 
-            // descricao
-            // 
-            this.descricao.DataPropertyName = "descricao";
-            this.descricao.HeaderText = "Descrição do usuário";
-            this.descricao.Name = "descricao";
-            this.descricao.ReadOnly = true;
-            this.descricao.Width = 300;
-            // 
             // frmUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1325, 685);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.btnImagem);
             this.Controls.Add(this.picPerfil);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.dtpNascimento);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtScreenname);
@@ -304,7 +293,6 @@
         private System.Windows.Forms.TextBox txtScreenname;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.DateTimePicker dtpNascimento;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox picPerfil;
         private System.Windows.Forms.Button btnImagem;
         private System.Windows.Forms.Button btnCadastrar;
